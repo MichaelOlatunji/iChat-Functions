@@ -9,8 +9,8 @@ const onUserCreate = (user) => {
         displayName:'',
         phone:'',
         photoUrl:'',
-        created_at: Date.now(),
-        updated_at: Date.now(),
+        created_at: new Date(Date.now()),
+        updated_at: new Date(Date.now()),
     })
 }
 
