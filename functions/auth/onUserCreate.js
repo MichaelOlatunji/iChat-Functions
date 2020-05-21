@@ -1,7 +1,7 @@
 const admin = require('firebase-admin');
 const firestore = admin.firestore();
 
-const onUserCreate = (user) => {
+const createUser = (user) => {
     return firestore.collection('users').doc(user.uid).set({
         email: user.email,
         firstName: '',
@@ -11,7 +11,19 @@ const onUserCreate = (user) => {
         photoUrl:'',
         created_at: new Date(Date.now()),
         updated_at: new Date(Date.now()),
+        logs: {
+            online: false,
+            last_login: '',
+        }
     })
 }
 
-module.exports = onUserCreate
+const createContacts = (user) => {
+    return firestore.collection('contacts').doc(user.uid).set({
+        user_id: '',
+        user_email: '',
+        user_displayName: '',
+    })
+}
+
+module.exports = { createUser, createContacts }

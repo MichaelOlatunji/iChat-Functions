@@ -1,6 +1,6 @@
 //authentication functions here
 
-const onUserCreate = require('./onUserCreate');
-const onUserDelete = require('./onUserDelete');
+const { createUser, createContacts } = require("./onUserCreate");
+const onUserDelete = require("./onUserDelete");
 
-module.exports = { onUserCreate , onUserDelete }
+module.exports = { createUser, createContacts, onUserDelete };
